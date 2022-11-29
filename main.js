@@ -67,7 +67,7 @@ function setinfo(){
 	setName(getCookie("name"));
 	SetCountConnect(getCookie("c_c"));
 	let h = getCookie("lastCon").split(",");
-	lastconn([Number(h[0]),Number(h[1]),Number(h[2]]);
+	lastconn([Number(h[0]),Number(h[1]),Number(h[2])]);
 }
 
 function setName(name){
