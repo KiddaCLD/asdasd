@@ -1,5 +1,4 @@
 document.querySelector('#reg').onclick = Registory; //обработчик нажатия
-flag = 0; // если 1 то пользователь зарегестрирован а если 0 то нет
 
 if (getCookie("reg") == 1){
 	setinfo()
