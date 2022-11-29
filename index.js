@@ -55,12 +55,12 @@ function unregister(){
 
 function lastconn(lc){
 	let today = new Date()
-	let td = [  (today.getHours() -lc[2] < 0) ? 24 - (today.getHours() -lc[2]) : today.getHours() -lc[2],
-				(today.getMinutes() - lc[3]) ? 60 - (today.getHours() -lc[2]) : today.getHours() -lc[2],
-				(today.getSeconds() - lc[4])  ? 60 - (today.getHours() -lc[2]) : today.getHours() -lc[2],
+	let td = [  (today.getHours() -lc[0] < 0) ? 24 - (today.getHours() -lc[0]) : today.getHours() -lc[0],
+				(today.getMinutes() - lc[1]) ? 60 - (today.getHours() -lc[1]) : today.getHours() -lc[1],
+				(today.getSeconds() - lc[2])  ? 60 - (today.getHours() -lc[2]) : today.getHours() -lc[2],
 			  ];
 
-	
+	SetLastConnect(td);	
 }
 
 function setinfo(){
