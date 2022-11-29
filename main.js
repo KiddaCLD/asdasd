@@ -10,10 +10,7 @@ else{
 
 
 function setCookie(name, value, expire) {  
-	document.cookie = name + "=" + escape(value) +
-		//В строку дописывается имя устанавливаемой cookie
-	((expire == null) ? "" : ("; expires=" + expire.toGMTString()))
-		//Устанавливается время действия
+	document.cookie = name + "=" + escape(value) + ((expire == null) ? "" : ("; expires=" + expire.toGMTString()))
 }
 
 
