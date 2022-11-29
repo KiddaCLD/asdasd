@@ -33,10 +33,19 @@ function Registory() {
 	let expires = new Date()
 	expires.setTime(today.getTime() + 1000*60*60*24*365)
 	let name = document.querySelector(".regreg").value;
+	totoday = [	today.getFullYear(),
+				today.getMonth()+1,
+				today.getDate(),
+				today.getHours(),
+				today.getMinutes(),
+				today.getSeconds(),
+			  ];
+
 	setCookie("reg", 1, expires);
 	setCookie("name", name, expires);
 	setCookie("c_c", 1, expires);
 	setCookie("lastCon", today , expires);
+	location.reload();
 
 }
 
@@ -47,10 +56,13 @@ function unregister(){
 }
 
 
+function lastconn(mas){
+
+}
+
 function setinfo(){
-	console.log(getCookie("name"))
-	console.log(getCookie("reg"))
-	console.log(getCookie("c_c"))
+	setName(getCookie("name"));
+	SetCountConnect(getCookie("c_c"));
 	console.log(getCookie("lastCon"))
 }
 
@@ -66,3 +78,15 @@ function SetLastConnect(time){
 	document.querySelector("p#time").textContent = "Вы были на этой странице: "+time;
 }
 
+
+
+/*!mas!
+0 - год
+1 -
+2 -
+3 -
+4 -
+5 -
+6 -
+
+*/
