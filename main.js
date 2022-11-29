@@ -33,12 +33,9 @@ function Registory() {
 	let expires = new Date()
 	expires.setTime(today.getTime() + 1000*60*60*24*365)
 	let name = document.querySelector(".regreg").value;
-	totoday = [	today.getFullYear(),
-				today.getMonth()+1,
-				today.getDate(),
-				today.getHours(),
+	totoday = [ today.getHours(),
 				today.getMinutes(),
-				today.getSeconds(),
+				today.getSeconds()
 			  ];
 
 	setCookie("reg", 1, expires);
@@ -50,20 +47,26 @@ function Registory() {
 }
 
 function unregister(){
-	document.querySelector("p#name").textContent = "Вы еще не зарегестрировались!";
-	document.querySelector("p#count").textContent = "количество посещений: 1";
-	document.querySelector("p#time").textContent = "Вы были на этой странице в последний раз: никогда ";	
+	document.querySelector("p#name").textContent = "";
+	document.querySelector("p#count").textContent = "Вы еще не зарегестрировались!";
+	document.querySelector("p#time").textContent = "";	
 }
 
 
-function lastconn(mas){
+function lastconn(lc){
+	let today = new Date()
+	let td = [  (today.getHours() -lc[2] < 0) ? 24 - (today.getHours() -lc[2]) : today.getHours() -lc[2],
+				(today.getMinutes() - lc[3]) ? 60 - (today.getHours() -lc[2]) : today.getHours() -lc[2],
+				(today.getSeconds() - lc[4])  ? 60 - (today.getHours() -lc[2]) : today.getHours() -lc[2],
+			  ];
 
+	
 }
 
 function setinfo(){
 	setName(getCookie("name"));
 	SetCountConnect(getCookie("c_c"));
-	console.log(getCookie("lastCon"))
+	lastconn(getCookie("lastCon"))
 }
 
 function setName(name){
@@ -74,19 +77,34 @@ function SetCountConnect(count){
 	document.querySelector("p#count").textContent = "количество посещений: "+count;
 }
 
+
+
+
+
 function SetLastConnect(time){
-	document.querySelector("p#time").textContent = "Вы были на этой странице: "+time;
+	ret = time[0]+"час"+
+					((time[0] >= 5 && time[0] <= 20) ? "ов": (time[0] == 1 || time[0] >= 22) ? "": "а")
+					+" "+time[1]+" минут"+ ((time[1] >= 10) ? (((Number(String(time[1]).split("")[1])) > 1 && (Number(String(time[1]).split("")[1])) <= 4)) ? 
+						          "ы" : (((((String(time[1]).split("")[1]) >= 5) && (Number(String(time[1]).split("")[1])) <= 9 || (Number(String(time[1]).split("")[1])) == 0) ? "": "а")) : ((time[1] > 1) && (time[1] <= 4)) ? 
+						          "ы" : (((time[1] >= 5) && (time[1] <= 9) || (time[1] == 0)) ? "": "а")) 
+					
+					+" "+time[0]+" секунд"+ ((time[2] >= 10) ? (((Number(String(time[2]).split("")[2])) > 1 && (Number(String(time[2]).split("")[2])) <= 4)) ? 
+						          "ы" : (((((String(time[2]).split("")[1]) >= 5) && (Number(String(time[2]).split("")[1])) <= 9 || (Number(String(time[2]).split("")[1])) == 0) ? "": "а")) : ((time[2] > 1) && (time[2] <= 4)) ? 
+						          "ы" : (((time[2] >= 5) && (time[2] <= 9) || (time[2] == 0)) ? "": "а"));
+	document.querySelector("p#time").textContent = "Вы были на этой странице: "+ret;
 }
 
 
 
 /*!mas!
-0 - год
+0 - 
 1 -
 2 -
 3 -
 4 -
 5 -
-6 -
 
 */
+
+
+//a = "минут"+ ((t >= 10) ? (((Number(String(t).split("")[1])) > 1 && (Number(String(t).split("")[1])) <= 4)) ? "ы" : (((((String(t).split("")[1]) >= 5) && (Number(String(t).split("")[1])) <= 9 || (Number(String(t).split("")[1])) == 0) ? "": "а")) : ((t > 1) && (t <= 4)) ? "ы" : (((t >= 5) && (t <= 9) || (t == 0)) ? "": "а"));
