@@ -17,8 +17,10 @@ function setCookie(name, value, expire) {
 function Registory() {
 	let today = new Date()
 	let expires = new Date()
+	expires.setTime(today.getTime() + 1000*60*60*24*365)
 	let name = document.querySelector(".regreg").value;
-	setCookie("name",name, 1000*60*60*24*365);
+	setCookie("reg",0, expires);
+	setCookie("name", name, expires);
 }
 
 function unregister(){
