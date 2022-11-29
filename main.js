@@ -41,7 +41,7 @@ function Registory() {
 	setCookie("reg", 1, expires);
 	setCookie("name", name, expires);
 	setCookie("c_c", 1, expires);
-	setCookie("lastCon", today , expires);
+	setCookie("lastCon", totoday , expires);
 	location.reload();
 
 }
@@ -93,18 +93,6 @@ function SetLastConnect(time){
 						          "ы" : (((time[2] >= 5) && (time[2] <= 9) || (time[2] == 0)) ? "": "а"));
 	document.querySelector("p#time").textContent = "Вы были на этой странице: "+ret;
 }
-
-
-
-/*!mas!
-0 - 
-1 -
-2 -
-3 -
-4 -
-5 -
-
-*/
 
 
 //a = "минут"+ ((t >= 10) ? (((Number(String(t).split("")[1])) > 1 && (Number(String(t).split("")[1])) <= 4)) ? "ы" : (((((String(t).split("")[1]) >= 5) && (Number(String(t).split("")[1])) <= 9 || (Number(String(t).split("")[1])) == 0) ? "": "а")) : ((t > 1) && (t <= 4)) ? "ы" : (((t >= 5) && (t <= 9) || (t == 0)) ? "": "а"));
