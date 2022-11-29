@@ -51,6 +51,7 @@ function unregister(){
 	document.querySelector("p#time").textContent = "";	
 }
 
+22 47 34
 function lastconn(lc){
 	let today = new Date()
 	let td = [  (today.getHours() -lc[0] < 0) ? 24 - (today.getHours() -lc[0]) : today.getHours() -lc[0],
@@ -59,13 +60,14 @@ function lastconn(lc){
 			  ];
 
 	SetLastConnect(td);	
-}
+	}
 
 function setinfo(){
 	setName(getCookie("name"));
 	SetCountConnect(getCookie("c_c"));
 	let h = getCookie("lastCon").split(",");
 	lastconn([Number(h[0]),Number(h[1]),Number(h[2])]);
+	updatecookie();
 }
 
 function setName(name){
@@ -87,7 +89,7 @@ function SetLastConnect(time){
 						          "ы" : (((((String(time[2]).split("")[1]) >= 5) && (Number(String(time[2]).split("")[1])) <= 9 || (Number(String(time[2]).split("")[1])) == 0) ? "": "а")) : ((time[2] > 1) && (time[2] <= 4)) ? 
 						          "ы" : (((time[2] >= 5) && (time[2] <= 9) || (time[2] == 0)) ? "": "а"));
 	document.querySelector("p#time").textContent = "Вы были на этой странице: "+ret;
-	updatecookie();
+	
 }
 
 
