@@ -1,4 +1,5 @@
 document.querySelector('#reg').onclick = Registory; //обработчик нажатия
+flag = 0; // если 1 то пользователь зарегестрирован а если 0 то нет
 
 if (getCookie("reg") == 1){
 	setinfo()
@@ -66,7 +67,7 @@ function setinfo(){
 	setName(getCookie("name"));
 	SetCountConnect(getCookie("c_c"));
 	let h = getCookie("lastCon").split(",");
-	lastconn([Number(h[0]),Number(h[1]),Number(h[2])]);
+	lastconn([Number(h[0]),Number(h[1]),Number(h[2]]);
 }
 
 function setName(name){
@@ -88,7 +89,18 @@ function SetLastConnect(time){
 						          "ы" : (((((String(time[2]).split("")[1]) >= 5) && (Number(String(time[2]).split("")[1])) <= 9 || (Number(String(time[2]).split("")[1])) == 0) ? "": "а")) : ((time[2] > 1) && (time[2] <= 4)) ? 
 						          "ы" : (((time[2] >= 5) && (time[2] <= 9) || (time[2] == 0)) ? "": "а"));
 	document.querySelector("p#time").textContent = "Вы были на этой странице: "+ret;
+	updatecookie();
 }
 
+
+function updatecookie(){
+	let today = new Date()
+	totoday = [ today.getHours(),
+				today.getMinutes(),
+				today.getSeconds()
+			  ];
+	setCookie("c_c", getCookie("c_c")+1, expires);
+	setCookie("lastCon", totoday , expires);	
+}
 
 //a = "минут"+ ((t >= 10) ? (((Number(String(t).split("")[1])) > 1 && (Number(String(t).split("")[1])) <= 4)) ? "ы" : (((((String(t).split("")[1]) >= 5) && (Number(String(t).split("")[1])) <= 9 || (Number(String(t).split("")[1])) == 0) ? "": "а")) : ((t > 1) && (t <= 4)) ? "ы" : (((t >= 5) && (t <= 9) || (t == 0)) ? "": "а"));
