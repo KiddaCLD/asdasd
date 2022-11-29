@@ -51,7 +51,7 @@ function unregister(){
 	document.querySelector("p#time").textContent = "";	
 }
 
-22 47 34
+
 function lastconn(lc){
 	let today = new Date()
 	let td = [  (today.getHours() -lc[0] < 0) ? 24 - (today.getHours() -lc[0]) : today.getHours() -lc[0],
