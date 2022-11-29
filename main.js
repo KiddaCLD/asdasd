@@ -66,7 +66,8 @@ function lastconn(lc){
 function setinfo(){
 	setName(getCookie("name"));
 	SetCountConnect(getCookie("c_c"));
-	lastconn(getCookie("lastCon"))
+	let h = getCookie("lastCon").split(",");
+	lastconn([h[0],h[1],h[2]]);
 }
 
 function setName(name){
@@ -76,10 +77,6 @@ function setName(name){
 function SetCountConnect(count){
 	document.querySelector("p#count").textContent = "количество посещений: "+count;
 }
-
-
-
-
 
 function SetLastConnect(time){
 	ret = time[0]+"час"+
