@@ -31,7 +31,6 @@ function getCookie(Name) {
 function Registory() {
 	let name = document.querySelector(".regreg").value;
 	if (name != "" || name != " " || name != "  " || name != "   "){
-		if (name != "")
 		let today = new Date()
 		let expires = new Date()
 		expires.setTime(today.getTime() + 1000*60*60*24*365)
