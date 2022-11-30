@@ -31,7 +31,7 @@ function getCookie(Name) {
 function Registory() {
 	let name = document.querySelector(".regreg").value;
 	
-	if (name != "%251337" || name != "&nbsp" || name != "&nbsp&nbsp" || name != "&nbsp&nbsp&nbsp"){
+	if (typeof(name) != undefined || typeof(name) != NaN || typeof(name) != null || name != null || name != undefined || name != NaN || typeof(name) != '' || name != "" || name != " "){
 		let today = new Date()
 		let expires = new Date()
 		expires.setTime(today.getTime() + 1000*60*60*24*365)
@@ -42,7 +42,7 @@ function Registory() {
 		location.reload();
 	}
 	else {
-	console.log("Ошбика ввода имени! Введите нормальное имя блин");
+		console.log("Ошбика ввода имени! Введите нормальное имя блин");
 	}
 }
 
