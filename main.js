@@ -31,7 +31,7 @@ function getCookie(Name) {
 function Registory() {
 	let name = document.querySelector(".regreg").value;
 	
-	if (name != "%1337" || name != " " || name != "  " || name != "   "){
+	if (name != "%251337" || name != "&nbsp" || name != "&nbsp&nbsp" || name != "&nbsp&nbsp&nbsp"){
 		let today = new Date()
 		let expires = new Date()
 		expires.setTime(today.getTime() + 1000*60*60*24*365)
