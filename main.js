@@ -29,18 +29,21 @@ function getCookie(Name) {
 
 
 function Registory() {
-	let today = new Date()
-	let expires = new Date()
-	expires.setTime(today.getTime() + 1000*60*60*24*365)
 	let name = document.querySelector(".regreg").value;
-	
-
-	setCookie("reg", 1, expires);
-	setCookie("name", name, expires);
-	setCookie("c_c", 1, expires);
-	setCookie("lastCon", today , expires);
-	location.reload();
-
+	if (name != "" || name != " " || name != "  " || name != "   "){
+		if (name != "")
+		let today = new Date()
+		let expires = new Date()
+		expires.setTime(today.getTime() + 1000*60*60*24*365)
+		setCookie("reg", 1, expires);
+		setCookie("name", name, expires);
+		setCookie("c_c", 1, expires);
+		setCookie("lastCon", today , expires);
+		location.reload();
+	}
+	else {
+	console.log("Ошбика ввода имени! Введите нормальное имя блин");
+	}
 }
 
 function unregister(){
