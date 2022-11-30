@@ -1,10 +1,10 @@
-document.querySelector('#reg').onclick = Registory; //обработчик нажатия
-document.querySelector('#cls').onclick = obnul; 
-
 if (getCookie("reg") == 1){
+	document.querySelector('#cls').onclick = obnul; 
 	setinfo()
+	
 }
 else{
+	document.querySelector('#reg').onclick = Registory; //обработчик нажатия
 	unregister();
 }
 
