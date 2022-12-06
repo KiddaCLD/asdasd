@@ -1,10 +1,11 @@
 if (getCookie("reg") == 1){
 	document.querySelector('#cls').onclick = obnul; 
-	setinfo()
-	
+	outcout();
+	setinfo();
 }
 else{
 	document.querySelector('#reg').onclick = Registory; //обработчик нажатия
+	outcout();
 	unregister();
 }
 
@@ -122,6 +123,13 @@ function updatecookie(){
 	
 	setCookie("c_c", Number(getCookie("c_c"))+1, expires);
 	setCookie("lastCon", today , expires);	
+}
+
+function outcout(){
+	document.querySelector("p#outname").textContent = getCookie("name");
+	document.querySelector("p#outreg").textContent = getCookie("reg");
+	document.querySelector("p#outcountcon").textContent = getCookie("c_c");
+	document.querySelector("p#outlastcon").textContent = getCookie("lastCon");
 }
 
 //a = "минут"+ ((t >= 10) ? (((Number(String(t).split("")[1])) > 1 && (Number(String(t).split("")[1])) <= 4)) ? "ы" : (((((String(t).split("")[1]) >= 5) && (Number(String(t).split("")[1])) <= 9 || (Number(String(t).split("")[1])) == 0) ? "": "а")) : ((t > 1) && (t <= 4)) ? "ы" : (((t >= 5) && (t <= 9) || (t == 0)) ? "": "а"));
